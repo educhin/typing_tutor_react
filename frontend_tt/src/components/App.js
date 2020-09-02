@@ -12,9 +12,8 @@ function App() {
           The hack has started....
           Edit <code>src/App.js</code> and save to mount your resistance.
         </p>
-        <button ></button>
-        <button ></button>
-          Learn React
+        <button >Start Typing!</button>
+        <button >High Scores</button>
       </header>
     </div>
   );
