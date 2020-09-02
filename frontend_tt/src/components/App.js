@@ -6,19 +6,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1> Welcome to Typing_Tutor_React!</h1>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           The hack has started....
           Edit <code>src/App.js</code> and save to mount your resistance.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <button ></button>
+        <button ></button>
           Learn React
-        </a>
       </header>
     </div>
   );
