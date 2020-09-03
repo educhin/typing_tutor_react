@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '../logo.svg';
 import '../styling/App.css';
+import TypingButton from './Home/TypingButton.js';
+import StartButton from './Home/StartButton';
 
 function App() {
   return (
@@ -12,11 +14,14 @@ function App() {
           The hack has started....
           Edit <code>src/App.js</code> and save to mount your resistance.
         </p>
-        <button >Start Typing!</button>
-        <button >High Scores</button>
+        <div>
+          <TypingButton/>
+          <StartButton/>
+        </div>
       </header>
     </div>
   );
 }
 
 export default App;
+
