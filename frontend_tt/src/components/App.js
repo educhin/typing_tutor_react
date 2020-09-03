@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../logo.svg';
 import '../styling/App.css';
 import TypingButton from './Home/TypingButton.js';
-import StartButton from './Home/StartButton';
+import ScoresButton from './Home/ScoresButton';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         </p>
         <div>
           <TypingButton/>
-          <StartButton/>
+          <ScoresButton/>
         </div>
       </header>
     </div>
