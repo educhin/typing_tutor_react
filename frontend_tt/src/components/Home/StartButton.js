@@ -2,7 +2,7 @@ import React from 'react';
 
 class StartButton extends React.Component {
     render() {
-        return <button>High Scores!</button>
+        return <button onClick={() => {console.log("Testing: Start")}}>High Scores!</button>
     }
 }
 

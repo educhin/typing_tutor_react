@@ -6,7 +6,7 @@ import React from 'react';
 
 class TypingButton extends React.Component {
     render() {
-        return <button>Start Typing</button>
+        return <button onClick={() => console.log("Testing: Typing")}>Start Typing</button>
     }
 }
 
