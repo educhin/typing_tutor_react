@@ -1,8 +1,9 @@
 import React from 'react';
 import logo from '../logo.svg';
 import '../styling/App.css';
-import TypingButton from './Home/TypingButton.js';
-import ScoresButton from './Home/ScoresButton';
+import ButtonContainer from './ButtonContainer.js';
+// import TypingButton from './Home/TypingButton.js';
+// import ScoresButton from './Home/ScoresButton';
 
 function App() {
   return (
@@ -15,8 +16,7 @@ function App() {
           Edit <code>src/App.js</code> and save to mount your resistance.
         </p>
         <div>
-          <TypingButton/>
-          <ScoresButton/>
+          <ButtonContainer />
         </div>
       </header>
     </div>
