@@ -1,8 +1,16 @@
 import React from 'react';
+import ButtonContainer from './ButtonContainer.js';
+
 
 class Home extends React.Component {
     render() {
-        return <h1>Home is where the heart is.</h1>
+        return (
+            
+            <div>
+                <h1>Home is where the heart is.</h1>
+                <ButtonContainer />
+            </div>
+        )
     }
 }
 
