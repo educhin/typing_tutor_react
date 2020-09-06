@@ -32,6 +32,7 @@ import {
 } from "react-router-dom";
 import Test from "../components/Test"
 import Scores from "../components/Scores"
+import Home from "./Home"
 
 function App() {
   return (
@@ -45,6 +46,10 @@ function App() {
 
         <Route path="/scores">
           <Scores />
+        </Route>
+
+        <Route path="/">
+          <Home />
         </Route>
 
       </Switch>
