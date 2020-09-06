@@ -8,6 +8,9 @@ class Home extends React.Component {
             
             <div>
                 <h1>Home is where the heart is.</h1>
+                <p>
+                    ~Small Desc about the project~
+                </p>
                 <ButtonContainer />
             </div>
         )
