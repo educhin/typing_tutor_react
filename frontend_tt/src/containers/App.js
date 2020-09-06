@@ -6,10 +6,12 @@ import {
 import Test from "../components/Test"
 import Scores from "../components/Scores"
 import Home from "./Home"
+import NavBar from "../components/NavBar"
 
 function App() {
   return (
     <div>
+      <NavBar></NavBar>
       <Switch>
  
         <Route path="/test">
