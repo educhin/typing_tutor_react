@@ -6,9 +6,43 @@ class Test extends React.Component {
         super()
 
         this.state = {
-            quote: []
+            quote: [], 
+
         }
     }
+
+    // quoteInputElement = document.getElementById('quoteInput')
+
+    // quoteInputElement.addEventListener('input', () => {
+    //     const arrayQuote = quoteDisplayElement.querySelectorAll('span')
+    //     const arrayValue = quoteInputElement.value.split('')
+      
+    //     let correct = true
+    //     arrayQuote.forEach((characterSpan, index) => {
+    //       const character = arrayValue[index]
+    //       if (character == null) {
+    //         characterSpan.classList.remove('correct')
+    //         characterSpan.classList.remove('incorrect')
+    //         correct = false
+    //       } else if (character === characterSpan.innerText) {
+    //         characterSpan.classList.add('correct')
+    //         characterSpan.classList.remove('incorrect')
+    //       } else {
+    //         characterSpan.classList.remove('correct')
+    //         characterSpan.classList.add('incorrect')
+    //         correct = false
+    //       }
+    //     })
+      
+    //     if (correct) renderNewQuote()
+    //   })
+      
+    // function getRandomQuote() {
+    // return fetch(RANDOM_QUOTE_API_URL)
+    //     .then(response => response.json())
+    //     .then(data => data.content)
+    // }
+
 
     setQuote = (quote) => {
         this.setState({
@@ -29,7 +63,7 @@ class Test extends React.Component {
             <div>
                 <h1>Test function goes here.</h1>
                 <p id="quoteDisplay" className="quote-display">{this.state.quote}</p>
-                <textarea id="quoteBox" className="quote-box" autofocus="true"></textarea>
+                <textarea id="quoteInput" className="quote-input" autofocus="true"></textarea>
                 <p>WPM: 315 | ACC: 100%</p>
             </div>
         )
