@@ -1,6 +1,6 @@
 import React from 'react';
-import TypingButton from '../components/Home/TypingButton.js';
-import ScoresButton from '../components/Home/ScoresButton';
+import TypingButton from '../components/home/TypingButton.js';
+import ScoresButton from '../components/home/ScoresButton';
 
 class ButtonContainer extends React.Component {
     render() {
