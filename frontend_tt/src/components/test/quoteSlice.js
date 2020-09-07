@@ -19,3 +19,5 @@ export const quoteSlice = createSlice({
 // export const { update } = quoteSlice.actions
 
 export default quoteSlice.reducer
+
+export const selectQuote = state => state.quote
