@@ -6,6 +6,13 @@ const initialState = [
         position: 1,
         wpm: 315,
         acc: 100
+    },
+    
+    {
+        name: 'Pickle Rick',
+        position: 2,
+        wpm: 200,
+        acc: 98
     }
 ]
 
