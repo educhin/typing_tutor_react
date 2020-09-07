@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonContainer from './ButtonContainer.js';
+import ButtonContainer from '../../containers/ButtonContainer.js';
 
 
 class Home extends React.Component {
