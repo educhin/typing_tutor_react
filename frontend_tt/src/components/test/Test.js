@@ -33,8 +33,10 @@ export const Test = () =>{
             <h1 className="title">Welcome to the test page!</h1>
             <div className="container">
                 <p id="quoteDisplay" className="quote-display">{content}</p>
-                <textarea id="quoteInput" className="quote-input" autoFocus={true}>Start typing here!</textarea>
-                <p>WPM: 315 | ACC: 100%</p>
+                <textarea id="quoteInput" className="quote-input" autoFocus={true}>Failed to fetch</textarea>
+                <div className="stats">
+                    <p>WPM: 315 | ACC: 100%</p>
+                </div>
                 {console.log(quote)}
             </div>
 

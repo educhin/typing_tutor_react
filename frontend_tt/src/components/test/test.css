@@ -25,8 +25,10 @@ body, .quote-input {
 
 .quote-display {
     margin-bottom: 1rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+    margin-left: calc(1rem + 2px);
+    margin-right: calc(1rem + 2px);
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .quote-input {
@@ -38,8 +40,15 @@ body, .quote-input {
     margin: auto;
     resize: none;
     padding: .5rem 1rem;
+    font-size: 1rem;
+    border-radius: .5rem;
 }
 
 .quote-input:focus {
     border-color: darkolivegreen;
+}
+
+.stats {
+width: 100%;
+padding-left: 1rem;
 }
