@@ -7,7 +7,7 @@ const initialState = [
         wpm: 315,
         acc: 100
     },
-    
+
     {
         name: 'Pickle Rick',
         position: 2,
@@ -25,3 +25,5 @@ export const scoresSlice = createSlice({
 })
 
 export default scoresSlice.reducer
+
+export const selectAllScores = state => state.scores

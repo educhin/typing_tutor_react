@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import selectQuote from './quoteSlice'
+import { selectQuote } from './quoteSlice'
 
 
 export const Test = () =>{
-    const quote = useSelector(state => state.quote)
+    const quote = useSelector(selectQuote)
 
     return (
         <div>

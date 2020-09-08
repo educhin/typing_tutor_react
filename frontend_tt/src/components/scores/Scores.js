@@ -10,9 +10,10 @@
 
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { selectAllScores } from './scoresSlice'
 
 export const Scores = () => {
-  const scores = useSelector(state => state.scores)
+  const scores = useSelector(selectAllScores)
 
   const renderedScores = scores.map(score => (
     <div className="score-line" key={score.position}>
