@@ -52,3 +52,12 @@ body, .quote-input {
 width: 100%;
 padding-left: 1rem;
 }
+
+.correct {
+    color: rgb(33, 116, 33);
+}
+
+.incorrect {
+    color: red;
+    text-decoration: underline;
+}
