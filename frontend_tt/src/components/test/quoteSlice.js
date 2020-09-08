@@ -23,7 +23,6 @@ export const quoteSlice = createSlice({
         },
         [fetchQuote.fulfilled]: (state, action) => {
           state.status = 'fulfilled'
-          // Add any fetched posts to the array
           state.quote = state.quote.concat(action.payload)
         },
         [fetchQuote.rejected]: (state, action) => {
@@ -32,9 +31,6 @@ export const quoteSlice = createSlice({
         }
     }
 })
-
-
-// export const { update } = quoteSlice.actions
 
 export default quoteSlice.reducer
 

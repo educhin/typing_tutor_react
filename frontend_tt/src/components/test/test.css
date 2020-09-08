@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: aquamarine;
+}
+
+body, .quote-input {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
