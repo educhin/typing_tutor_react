@@ -1,18 +1,27 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectQuote } from './quoteSlice'
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectQuote, fetchQuote } from './quoteSlice'
 
 
 export const Test = () =>{
+    const dispatch = useDispatch()
     const quote = useSelector(selectQuote)
+
+    const quoteStatus = useSelector(state => state.quote.status)
+
+    useEffect(() => {
+      if (quoteStatus === 'idle') {
+        dispatch(fetchQuote())
+      }
+    }, [quoteStatus, dispatch])
 
     return (
         <div>
             <h1>Test function goes here.</h1>
-            <p id="quoteDisplay" className="quote-display">{quote[0].content}</p>
+            <p id="quoteDisplay" className="quote-display">{quote}</p>
             <textarea id="quoteInput" className="quote-input" autoFocus={true}></textarea>
             <p>WPM: 315 | ACC: 100%</p>
-            {console.log(quote.content)}
+            {console.log(quote)}
         </div>
     )
 }
