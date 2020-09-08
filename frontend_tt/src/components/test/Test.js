@@ -30,11 +30,14 @@ export const Test = () =>{
 
     return (
         <div>
-            <h1>Test function goes here.</h1>
-            <p id="quoteDisplay" className="quote-display">{content}</p>
-            <textarea id="quoteInput" className="quote-input" autoFocus={true}></textarea>
-            <p>WPM: 315 | ACC: 100%</p>
-            {console.log(quote)}
+            <h1 className="title">Welcome to the test page!</h1>
+            <div className="container">
+                <p id="quoteDisplay" className="quote-display">{content}</p>
+                <textarea id="quoteInput" className="quote-input" autoFocus={true}>Start typing here!</textarea>
+                <p>WPM: 315 | ACC: 100%</p>
+                {console.log(quote)}
+            </div>
+
         </div>
     )
 }
