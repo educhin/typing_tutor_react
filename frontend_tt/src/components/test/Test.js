@@ -8,6 +8,8 @@ export const Test = () =>{
     const quote = useSelector(selectQuote)
 
     const quoteStatus = useSelector(state => state.quote.status)
+    const error = useSelector(state => state.quote.error)
+
 
     useEffect(() => {
       if (quoteStatus === 'idle') {
@@ -15,10 +17,20 @@ export const Test = () =>{
       }
     }, [quoteStatus, dispatch])
 
+    let content
+
+    if (quoteStatus === 'pending') {
+      content = "Loading..."
+    } else if (quoteStatus === 'fulfilled') {
+      content = quote
+    } else if (quoteStatus === 'failed') {
+      content = error
+    }
+
     return (
         <div>
             <h1>Test function goes here.</h1>
-            <p id="quoteDisplay" className="quote-display">{quote}</p>
+            <p id="quoteDisplay" className="quote-display">{content}</p>
             <textarea id="quoteInput" className="quote-input" autoFocus={true}></textarea>
             <p>WPM: 315 | ACC: 100%</p>
             {console.log(quote)}
@@ -27,43 +39,3 @@ export const Test = () =>{
 }
 
 export default Test;
-
-// class Test extends React.Component {
-
-//     // constructor() {
-//     //     super()
-
-//     //     this.state = {
-//     //         quote: [], 
-
-//     //     }
-//     // }
-
-//     // setQuote = (quote) => {
-//     //     this.setState({
-//     //         quote: quote    
-//     //     })
-//     // }
-//     // componentDidMount() {
-//     //     fetch('http://api.quotable.io/random')
-//     //     .then(response => response.json())
-//     //     .then(data => {
-//     //         this.setQuote(data.content)
-//     //     })
-//     // }
-
-//     this.quote = useSelector(selectQuote)
-
-//     render() {
-//         return (
-//             <div>
-//                 <h1>Test function goes here.</h1>
-//                 <p id="quoteDisplay" className="quote-display">{this.state.quote}</p>
-//                 <textarea id="quoteInput" className="quote-input" autoFocus={true}></textarea>
-//                 <p>WPM: 315 | ACC: 100%</p>
-//             </div>
-//         )
-//     }
-// }
-
-// export default Test;

@@ -7,19 +7,33 @@ const initialState = {
     error: null
 }
 
+export const fetchQuote = createAsyncThunk('quote/fetchQuote', async () => {
+    const response = await client.get('http://api.quotable.io/random')
+    return response.content
+  })
+
 export const quoteSlice = createSlice({
     name: 'quote',
     initialState,
     reducers: {
-        // update: state => {
-        //     state.content = 'Updated'
-        // }
+    },
+    extraReducers: {
+        [fetchQuote.pending]: (state, action) => {
+          state.status = 'pending'
+        },
+        [fetchQuote.fulfilled]: (state, action) => {
+          state.status = 'fulfilled'
+          // Add any fetched posts to the array
+          state.quote = state.quote.concat(action.payload)
+        },
+        [fetchQuote.rejected]: (state, action) => {
+          state.status = 'failed'
+          state.error = action.error.message
+        }
     }
 })
-export const fetchQuote = createAsyncThunk('quote/fetchQuote', async () => {
-    const response = await client.get('http://api.quotable.io/random')
-    return response.quote
-  })
+
+
 // export const { update } = quoteSlice.actions
 
 export default quoteSlice.reducer
