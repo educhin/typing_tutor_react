@@ -8,7 +8,8 @@ const initialState = {
 }
 
 export const fetchQuote = createAsyncThunk('quote/fetchQuote', async () => {
-    const API_URL = 'http://api.quotable.io/random'
+    // const API_URL = 'http://api.quotable.io/random'
+    const API_URL = 'http://localhost:3000/quotes/1'
     const response = await client.get(API_URL)
     return response.content
   })
