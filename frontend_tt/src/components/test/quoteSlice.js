@@ -14,6 +14,15 @@ export const fetchQuote = createAsyncThunk('quote/fetchQuote', async () => {
     return response.content
   })
 
+  export const addNewQuote = createAsyncThunk(
+    'quote/addNewQuote',
+    async (initialQuote) => {
+      const API_URL = 'http://localhost:3000/quotes'
+      const response = await client.post(API_URL, { quote: initialQuote })
+      return response.quote
+    }
+  )
+
 export const quoteSlice = createSlice({
     name: 'quote',
     initialState,
@@ -30,10 +39,17 @@ export const quoteSlice = createSlice({
         [fetchQuote.rejected]: (state, action) => {
           state.status = 'failed'
           state.error = action.error.message
+        },
+        [addNewQuote.fulfilled]: (state, action) => {
+          // We can directly add the new post object to our quote array
+          state.quote.push(action.meta.arg)
+          console.log(action.meta.arg)
         }
     }
 })
 
 export default quoteSlice.reducer
+
+// export const { quoteAdded } = quoteSlice.actions
 
 export const selectQuote = state => state.quote.quote
