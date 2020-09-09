@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './test.css';
-import { selectQuote, fetchQuote } from './quoteSlice'
+import { selectQuote, fetchQuote } from './quoteSlice';
+import { currentTime } from './time'
 
 
 export const Test = () =>{
@@ -14,6 +15,9 @@ export const Test = () =>{
     const quoteDisplayElement = document.getElementById('quoteDisplay')
     const quoteInputElement = document.getElementById('quoteInput')
 
+    const [startTime, setStartTime] = useState();
+    const [charCount, setCharCount] = useState(0);
+    const [wpm, setWpm] = useState(0);
 
     useEffect(() => {
       if (quoteStatus === 'idle') {
@@ -44,7 +48,35 @@ export const Test = () =>{
     }
 
     function handleChange(e) {
-      console.log(e.target.value)
+      const arrQuote = quoteDisplayElement.querySelectorAll('span')
+      const arrVal = e.target.value.split('')
+
+      let correct = true
+
+      arrQuote.forEach((span, i) => {
+        const c = arrVal[i]
+        if (c == null) {
+          span.classList.remove ('correct')
+          span.classList.remove('incorrect')
+          correct = false
+        } else if (c === span.innerText) {
+          span.classList.add('correct')
+          span.classList.remove('incorrect')
+        } else {
+          span.classList.remove('correct')
+          span.classList.add('incorrect')
+          correct = false
+        }
+      })
+
+      if (!startTime) {
+        setStartTime(currentTime());
+      }
+      setCharCount(arrQuote.length)
+
+      if (correct) {
+        setWpm(((charCount / 5) / ((currentTime() - startTime) / 60000.0)).toFixed(2));
+      }
     }
 
     return (
@@ -54,9 +86,8 @@ export const Test = () =>{
                 <p id="quoteDisplay" className="quote-display"></p>
                 <textarea id="quoteInput" className="quote-input" onChange={handleChange} autoFocus={true}>Failed to fetch, there</textarea>
                 <div className="stats">
-                    <p>WPM: 315 | ACC: 100%</p>
+                    <p>WPM: {wpm}</p>
                 </div>
-                {/* {console.log(quote)} */}
             </div>
 
         </div>
