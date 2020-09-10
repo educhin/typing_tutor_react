@@ -42,7 +42,6 @@ export const quoteSlice = createSlice({
           state.error = action.error.message
         },
         [addNewQuote.fulfilled]: (state, action) => {
-          // We can directly add the new post object to our quote array
           state.quote.push(action.meta.arg)
           // console.log(action.meta.arg)
         }
@@ -50,7 +49,5 @@ export const quoteSlice = createSlice({
 })
 
 export default quoteSlice.reducer
-
-// export const { quoteAdded } = quoteSlice.actions
 
 export const selectQuote = state => state.quote.quote
