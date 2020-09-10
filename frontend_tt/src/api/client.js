@@ -35,5 +35,6 @@ export async function client(endpoint, { body, ...customConfig } = {}) {
   }
   
   client.post = function (endpoint, body, customConfig = {}) {
+    console.log(body)
     return client(endpoint, { ...customConfig, body })
   }

@@ -10,10 +10,13 @@ class QuotesController < ApplicationController
     end
 
     def create
-        author = params[:author]
-        content = params[:content]
-
-        quote = Quote.create(author: author, content: content)
+        quote = Quote.new(quote_params)
+        quote.save
         render json: quote
+    end
+
+    private
+    def quote_params
+      params.require(:quote).permit(:author, :content)
     end
 end

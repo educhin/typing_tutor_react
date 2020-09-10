@@ -19,7 +19,7 @@ export const fetchQuote = createAsyncThunk('quote/fetchQuote', async () => {
     'quote/addNewQuote',
     async initialQuote => {
       const response = await client.post(API_URL, { quote: initialQuote })
-      console.log(response)
+      // console.log(response)
       return response.quote
     }
   )
