@@ -41,7 +41,7 @@ export const AddQuoteForm = () => {
     <section>
       <h2>Add a New Quote</h2>
       <form>
-        <label htmlFor="quoteContent">Content:</label>
+        <label htmlFor="quoteContent" id="contentLabel" >Content:</label>
         <textarea
           id="quoteContent"
           name="quoteContent"

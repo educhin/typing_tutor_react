@@ -5,3 +5,47 @@ form {
     width: 700px;
     max-width: 90%;
 }
+form, label, #quoteContent, #quoteAuthor {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#contentLabel {
+    margin-bottom: 1rem;
+}
+
+#quoteContent, #quoteAuthor {
+    background-color: transparent;
+    border: 2px solid rgb(165, 131, 86);
+    outline: none;
+ 
+    font-size: 1rem;
+    border-radius: .5rem;
+}
+
+#quoteContent {
+    width: 100%;
+    height: 8rem;
+    margin: auto;
+    resize: none;
+    padding: .5rem 1rem;
+}
+
+#quoteAuthor {
+    margin: 1rem 1rem;
+}
+
+button {
+    border-radius: .5rem;
+    background-color: #4CAF50;  /* Green */
+    border: none;
+    color: white;
+    transition-duration: 0.4s;
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+  
+  button:hover {
+    background-color: aquamarine;/* Green */
+    color: white;
+  }
