@@ -1,0 +1,7 @@
+.home {
+    background-color: burlywood;
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 700px;
+    max-width: 90%;
+}

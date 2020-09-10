@@ -7,18 +7,19 @@ const initialState = {
     error: null
 }
 
+const API_URL = 'http://localhost:3000/quotes'
+
 export const fetchQuote = createAsyncThunk('quote/fetchQuote', async () => {
-    // const API_URL = 'http://api.quotable.io/random'
-    const API_URL = 'http://localhost:3000/quotes/1'
     const response = await client.get(API_URL)
-    return response.content
+    const random = Math.floor(Math.random() * (response.length))
+    return response[random].content
   })
 
   export const addNewQuote = createAsyncThunk(
     'quote/addNewQuote',
-    async (initialQuote) => {
-      const API_URL = 'http://localhost:3000/quotes'
+    async initialQuote => {
       const response = await client.post(API_URL, { quote: initialQuote })
+      // console.log(response)
       return response.quote
     }
   )
@@ -41,15 +42,12 @@ export const quoteSlice = createSlice({
           state.error = action.error.message
         },
         [addNewQuote.fulfilled]: (state, action) => {
-          // We can directly add the new post object to our quote array
           state.quote.push(action.meta.arg)
-          console.log(action.meta.arg)
+          // console.log(action.meta.arg)
         }
     }
 })
 
 export default quoteSlice.reducer
-
-// export const { quoteAdded } = quoteSlice.actions
 
 export const selectQuote = state => state.quote.quote

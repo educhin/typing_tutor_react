@@ -1,20 +1,18 @@
 import React from 'react';
 import ButtonContainer from '../../containers/ButtonContainer.js';
+import './home.css'
 
-
-class Home extends React.Component {
-    render() {
-        return (
+function Home() {
+    return (
             
-            <div>
-                <h1>Home is where the heart is.</h1>
-                <p>
-                    ~Small Desc about the project~
-                </p>
-                <ButtonContainer />
-            </div>
-        )
-    }
+        <div className="home">
+            <h1>Welcome to Typing Tutor React!</h1>
+            <p>
+            On my technology journey I have been severely held back by my typing speed, accuracy, and consistency. I made a concious effort to improve my skills and began reguraly using sites like speedcoder.net and typeracer.com. Since I started practicing I have more than doubled my typing speed and improved my accuracy. This project pays homage to the old disk typing games and is a way for me to improve my dev skills while creating a space for other devs to practice their typing.
+            </p>
+            <ButtonContainer />
+        </div>
+    )
 }
 
 export default Home;
