@@ -25,21 +25,17 @@ export const Test = () =>{
       }
     }, [quoteStatus, dispatch])
 
-    // let content
-
     if (quoteStatus === 'pending') {
       quoteDisplayElement.innerText = "Loading..."
       quoteInputElement.value = "Loading..."
 
     } else if (quoteStatus === 'fulfilled') {
-      // content = quote
       quoteDisplayElement.innerText = ''
       quote[0].split('').forEach(c => {
         const charSpan = document.createElement('span')
         charSpan.innerText = c
         quoteDisplayElement.appendChild(charSpan)
       })
-      // console.log(quote[0])
       quoteInputElement.value = null
     } else if (quoteStatus === 'failed') {
       quoteDisplayElement.innerText = error
@@ -81,7 +77,7 @@ export const Test = () =>{
 
     return (
         <div>
-            <h1 className="title">Welcome to the test page!</h1>
+            <h1 className="title">Welcome to the Test page!</h1>
             <div className="container">
                 <p id="quoteDisplay" className="quote-display"></p>
                 <textarea id="quoteInput" className="quote-input" onChange={handleChange} autoFocus={true}>Failed to fetch, there</textarea>
