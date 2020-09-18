@@ -22,26 +22,29 @@ export const Test = () =>{
     useEffect(() => {
       if (quoteStatus === 'idle') {
         dispatch(fetchQuote())
+      } else if (quoteStatus === 'fulfilled') {
+        //update later with a new side effect
+        quoteInputElement.value = null
       }
     }, [quoteStatus, dispatch])
 
-    if (quoteStatus === 'pending') {
-      quoteDisplayElement.innerText = "Loading..."
-      quoteInputElement.value = "Loading..."
+    // if (quoteStatus === 'pending') {
+    //   quoteDisplayElement.innerText = "Loading..."
+    //   quoteInputElement.value = "Loading..."
 
-    } else if (quoteStatus === 'fulfilled') {
-      quoteDisplayElement.innerText = ''
-      quote[0].split('').forEach(c => {
-        const charSpan = document.createElement('span')
-        charSpan.innerText = c
-        quoteDisplayElement.appendChild(charSpan)
-      })
-      quoteInputElement.value = null
-    } else if (quoteStatus === 'failed') {
-      quoteDisplayElement.innerText = error
-      quoteInputElement.value = error
+    // } else if (quoteStatus === 'fulfilled') {
+    //   quoteDisplayElement.innerText = ''
+      // quote[0].split('').forEach(c => {
+      //   const charSpan = document.createElement('span')
+      //   charSpan.innerText = c
+      //   quoteDisplayElement.appendChild(charSpan)
+      // })
+    //   quoteInputElement.value = null
+    // } else if (quoteStatus === 'failed') {
+    //   quoteDisplayElement.innerText = error
+    //   quoteInputElement.value = error
+    // }
 
-    }
 
     function handleChange(e) {
       const arrQuote = quoteDisplayElement.querySelectorAll('span')
@@ -79,7 +82,11 @@ export const Test = () =>{
         <div>
             <h1 className="title">Welcome to the Test page!</h1>
             <div className="container">
-                <p id="quoteDisplay" className="quote-display"></p>
+                <p id="quoteDisplay" className="quote-display">
+                  { quoteStatus === 'pending' && "Loading..." }
+                  { quoteStatus === 'fulfilled' && quote[0].split('').map(c => <span>{c}</span> ) }
+                  { quoteStatus === 'failed' && "Error" }
+                </p>
                 <textarea id="quoteInput" className="quote-input" onChange={handleChange} autoFocus={true}>Failed to fetch, there</textarea>
                 <div className="stats">
                     <p>WPM: {wpm}</p>
